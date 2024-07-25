@@ -1,0 +1,16 @@
+Go to your desired directory in which you want to create your app, open cmd and write the following commands: 
+
+npm install -g expo-cli
+
+expo --version
+
+expo init RestaurantOrderApp --template blank
+
+Make sure your node version is above 14(or 16), i have use  version 21
+
+npm start
+
+Happy Coding!
+
+This is the setup guide written on July,2024
+
