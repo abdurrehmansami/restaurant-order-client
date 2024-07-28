@@ -13,6 +13,9 @@ const Cart = ({ navigation }) => {
     dispatch({ type: 'REMOVE_FROM_CART', payload: { id } });
   };
 
+  const addTotalPriceTotalCart =(total)=>{
+
+  }
   const totalPrice = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
   return (
@@ -33,8 +36,12 @@ const Cart = ({ navigation }) => {
           </View>
         )}
       />
+      {cart.length > 0 ?<>
       <Text style={styles.totalPrice}>Total: ${totalPrice.toFixed(2)}</Text>
-      <Button title="Continue" onPress={() => navigation.navigate('OrderForm')} />
+      
+      <Button title="Continue" onPress={() => navigation.navigate('OrderForm')} /></>:
+      <Button title="Back To Menu" onPress={() => navigation.navigate('Menu')} />
+    }
     </View>
   );
 };

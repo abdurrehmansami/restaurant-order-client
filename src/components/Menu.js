@@ -7,9 +7,9 @@ import CartContext from '../contexts/CartContext';
 const Menu = ({ navigation }) => {
   const [products, setProducts] = useState([]);
   const { cart } = useContext(CartContext);
-
+  console.log('CART IN MENU', cart);
   useEffect(() => {
-    axios.get('http://192.168.18.143:3000/api/products')
+    axios.get('http://192.168.100.8:3000/api/products')
       .then(response => setProducts(response.data))
       .catch(error => console.log(error));
   }, []);

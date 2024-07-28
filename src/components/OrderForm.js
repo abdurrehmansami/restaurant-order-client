@@ -14,11 +14,11 @@ const OrderForm = ({ navigation }) => {
       customerName,
       customerPhone,
       customerAddress,
-      totalAmount:5,
+      totalAmount:cart.reduce((sum, item) => sum + item.price * item.quantity, 0),
       products: cart,
     };
 
-    axios.post('http://192.168.18.143:3000/api/orders', order)
+    axios.post('http://192.168.100.8:3000/api/orders', order)
       .then(response => {
         dispatch({ type: 'RESET_CART' });
         navigation.navigate('Menu');

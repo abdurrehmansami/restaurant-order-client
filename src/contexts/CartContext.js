@@ -3,6 +3,7 @@ import React, { createContext, useReducer } from 'react';
 const CartContext = createContext();
 
 const cartReducer = (state, action) => {
+  console.log('state in reduce is',state);
   switch (action.type) {
     case 'ADD_TO_CART':
       const productExists = state.find(item => item.id === action.payload.id);
@@ -22,6 +23,8 @@ const cartReducer = (state, action) => {
       );
     case 'REMOVE_FROM_CART':
       return state.filter(item => item.id !== action.payload.id);
+    case 'ADD_TOTAL_PRICE':
+      return {...state,totalPrice:action.payload.price};
       case 'RESET_CART':
       return [];
     default:
