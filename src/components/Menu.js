@@ -9,7 +9,7 @@ const Menu = ({ navigation }) => {
   const { cart } = useContext(CartContext);
   console.log('CART IN MENU', cart);
   useEffect(() => {
-    axios.get('http://192.168.100.8:3000/api/products')
+    axios.get('http://192.168.18.143:3000/api/products')
       .then(response => setProducts(response.data))
       .catch(error => console.log(error));
   }, []);
@@ -20,6 +20,7 @@ const Menu = ({ navigation }) => {
         <Card.Content>
           <Title>{item.name}</Title>
           <Paragraph>{item.price}</Paragraph>
+          <Text>Category: {item?.Category?.name}</Text>
         </Card.Content>
       </Card>
     </TouchableOpacity>
